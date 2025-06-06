@@ -1,0 +1,48 @@
+### Variables
+@baseUrl = http://localhost:3000
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQzMTljMDY3NjYxMDE4YTdiNGZlNzUiLCJpYXQiOjE3NDkyMjgwMzAsImV4cCI6MTc0OTgzMjgzMH0.wZjqJv0NryinAf9TK4L_VxM5FeGq-oDcd3o7RbcJSVA
+
+### Authentication Endpoints
+
+### Register a new user
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+### Login user
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+### URL Management Endpoints
+
+### Create a new short URL
+POST {{baseUrl}}/api/urls
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "originalUrl": "https://www.google.com/"
+}
+
+### Get all URLs for the authenticated user
+GET {{baseUrl}}/api/urls
+Authorization: Bearer {{token}}
+
+### Get URL analytics
+GET {{baseUrl}}/api/urls/I6py4VFiu0/analytics
+Authorization: Bearer {{token}}
+
+### Redirect to original URL (no auth required)
+GET {{baseUrl}}/api/urls/I6py4VFiu0
+
+### Welcome endpoint
+GET {{baseUrl}}/
