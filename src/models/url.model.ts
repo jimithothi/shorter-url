@@ -19,12 +19,14 @@ const urlSchema = new Schema<IUrl>({
     type: String,
     required: true,
     unique: true,
-    trim: true
+    trim: true,
+    index: true
   },
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
+    index: true
   },
   clicks: {
     type: Number,
@@ -34,9 +36,4 @@ const urlSchema = new Schema<IUrl>({
 }, {
   timestamps: true
 });
-
-// Index for faster queries
-urlSchema.index({ shortUrl: 1 });
-urlSchema.index({ userId: 1 });
-
 export const Url = mongoose.model<IUrl>('Url', urlSchema); 
