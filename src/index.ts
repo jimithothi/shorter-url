@@ -5,7 +5,6 @@ import mongoose from 'mongoose';
 import rateLimit from 'express-rate-limit';
 import { urlRoutes } from './routes/url.routes';
 import { authRoutes } from './routes/auth.routes';
-import { authMiddleware } from './middleware/auth.middleware';
 import { errorHandler } from './middleware/error.middleware';
 
 dotenv.config();

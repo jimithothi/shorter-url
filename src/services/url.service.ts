@@ -3,7 +3,12 @@ import { Url } from '../models/url.model';
 import { nanoid } from 'nanoid';
 import { RequestWithUser } from '../interface/common.interface';
 
-
+/**
+ * Creates a new short URL for a given original URL.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const createShortUrl = async (req: RequestWithUser, res: Response) => {
   try {
     const { originalUrl } = req.body;
@@ -20,6 +25,12 @@ export const createShortUrl = async (req: RequestWithUser, res: Response) => {
   }
 };
 
+/**
+ * Retrieves all URLs associated with the authenticated user.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const getUserUrls = async (req: RequestWithUser, res: Response) => {
   try {
     const urls = await Url.find({ userId: req.user._id });
@@ -29,6 +40,12 @@ export const getUserUrls = async (req: RequestWithUser, res: Response) => {
   }
 };
 
+/**
+ * Retrieves analytics for a specific URL associated with the authenticated user.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const getUrlAnalytics = async (req: RequestWithUser, res: Response) => {
   try {
     const url = await Url.findOne({
@@ -48,6 +65,12 @@ export const getUrlAnalytics = async (req: RequestWithUser, res: Response) => {
   }
 };
 
+/**
+ * Redirects to the original URL associated with a given short URL.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const redirectToOriginalUrl = async (req: Request, res: Response) => {
   try {
     const url = await Url.findOne({ shortUrl: req.params.shortUrl });

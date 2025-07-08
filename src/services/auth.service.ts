@@ -2,6 +2,12 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/user.model';
 
+/**
+ * Registers a new user and returns a JSON Web Token for authentication.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const registerUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
@@ -22,6 +28,12 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * Logs in an existing user and returns a JSON Web Token for authentication.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const loginUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;

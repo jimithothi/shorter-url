@@ -2,6 +2,12 @@ import { Response } from 'express';
 import { createShortUrl, getUserUrls, getUrlAnalytics, redirectToOriginalUrl } from '../services/url.service';
 import { RequestWithUser } from '../interface/common.interface';
 
+/**
+ * Handles the creation of a short URL by calling the createShortUrl service.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const createShortUrlController = async (req: RequestWithUser, res: Response) => {
   try {
     // @ts-expect-error Temporary: service signature expects (req, res), will fix in service next
@@ -13,6 +19,12 @@ export const createShortUrlController = async (req: RequestWithUser, res: Respon
   }
 };
 
+/**
+ * Handles the retrieval of all URLs for a user by calling the getUserUrls service.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const getUserUrlsController = async (req: RequestWithUser, res: Response) => {
   try {
     // @ts-expect-error Temporary: service signature expects (req, res), will fix in service next
@@ -24,6 +36,12 @@ export const getUserUrlsController = async (req: RequestWithUser, res: Response)
   }
 };
 
+/**
+ * Handles the retrieval of analytics for a URL by calling the getUrlAnalytics service.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const getUrlAnalyticsController = async (req: RequestWithUser, res: Response) => {
   try {
     // @ts-expect-error Temporary: service signature expects (req, res), will fix in service next
@@ -35,6 +53,12 @@ export const getUrlAnalyticsController = async (req: RequestWithUser, res: Respo
   }
 };
 
+/**
+ * Handles the redirection to the original URL by calling the redirectToOriginalUrl service.
+ * 
+ * @param req - The Express request object.
+ * @param res - The Express response object.
+ */
 export const redirectToOriginalUrlController = async (req: RequestWithUser, res: Response) => {
   try {
     // @ts-expect-error Temporary: service signature expects (req, res), will fix in service next
